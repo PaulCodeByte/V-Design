@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+.no-style {
+    text-decoration: none;
+    color: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: 'Bebas Neue', Impact;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+main {
+    padding-top: 55px;
+}
+
+.distancer{
+    height: 10px;
+    background-color: #ffc107;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    max-width: 600px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.distancer:first-child{
+    margin-top: 0;
+    margin-bottom: 60px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 50%;
+    height: 75vh;
+    object-fit: cover;
+}
+
+.img-right{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.img-left{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#logo-home{
+    width: 50px;
+}
+
+.testo{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 50%;
+}
+
+.testo #titolo{
+    font-size: 50px;
+    border-bottom: 5px solid #ffc107;
+}
+
+.testo #par {
+    margin: 20px;
+    font-size: 17px;
+    font-family: 'Roboto Condensed';
+    text-align: center;
+}
+
+#lista{
+    font-family: 'Roboto Condensed';
+    font-size: 17px;
+    text-align: center;
+}
+
+#lista li{
+    margin-top: 10px;
+    list-style: none;
+}
+
+#lista li:first-child{
+    margin-top: 0;
+}
+
+#pacchetti{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.card{
+    border: none;
+    background-color: #ffc107;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    max-height: 370px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 370px;
+    padding: 20px;
+}
+
+.card:hover{
+    scale: 1.1;
+}
+
+.card h2{
+    font-family: 'Bebas Neue';
+    font-size: 27px;
+    margin-top: 10px;
+}
+
+.card h3{
+    margin-bottom: 20px;
+}
+
+.card p{
+    font-family: 'Roboto Condensed';
+    color: white;
+    max-width: 200px;
+}
+
+.starter {
+    background-color: #709900;
+}
+
+.pro{
+    background-color: #ff7b00;
+}
+
+.elite{
+    background-color: #c29100;
+}
+
+.grafico {
+    background-color: #a342c1;
+}
+
+.lingue {
+    background-color: #0088a0;
+}
+
+.hover {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    top: 50%; /* Adjust this value to position the text correctly */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.starter:hover .hover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.pro:hover .hover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.elite:hover .hover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.starter:hover h3, .starter:hover h2, .starter:hover p{
+    filter: blur(2px);
+}
+
+.pro:hover h3, .pro:hover h2, .pro:hover p{
+    filter: blur(2px);
+}
+
+.elite:hover h3, .elite:hover h2, .elite:hover p{
+    filter: blur(2px);
+}
+
+.grafico:hover h3, .grafico:hover h2, .grafico:hover p{
+    filter: blur(2px);
+}
+.lingue:hover h3, .lingue:hover h2, .lingue:hover p{
+    filter: blur(2px);
+}
+
+.lingue:hover .hover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.grafico:hover .hover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 200px;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.normal{
+    font-family: 'Roboto Condensed';
+}
+
+.popup-content h2{
+    margin-bottom: 10px;
+}

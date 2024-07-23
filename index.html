@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{%block title%}
+V Design
+{%endblock%}
+
+{%block nav%}
+<li><a href="javascript:void(0)"class="no-style link" onclick="scrollToTarget('1')">Home</a></li>
+<li><a href="javascript:void(0)"class="no-style link" onclick="scrollToTarget('2')">Chi Sono</a></li>
+<li><a href="javascript:void(0)" class="no-style link" onclick="scrollToTarget('3')">Obiettivo</a></li>
+<li><a href="javascript:void(0)" class="no-style link" onclick="scrollToTarget('4')">Pacchetti</a></li>
+{%endblock%}
+
+{%block main%}
+<div class="distancer" id="1"></div>
+<div id="home" class="section">
+    <img src="{{ url_for('static', filename='Code.jpg') }}" alt="codice" class="img-left img">
+    <div class="testo">
+        <h1 id="titolo"><img src="{{ url_for('static', filename='Badge.png') }}" alt="logo" id="logo-home"> Design</h1>
+        <p id="par">La soluzione <strong>perfetta</strong> per chiunque</p>
+    </div>
+</div>
+<div class="distancer" id="2"></div>
+<div id="chi" class="section">
+    <div class="testo">
+        <h1 id="titolo">Chi Sono</h1>
+        <p id="par">Mi chiamo <strong>Paolo Tomatis</strong> e sono il fondatore di V Design. La mia passione per la tecnologia e il design mi ha portato a creare questa piccola attività dedicata a fornire soluzioni web su misura per aziende e professionisti. Ti aiuterò a costruire la tua presenza online e a raggiungere i tuoi obiettivi digitali.</p>
+    </div>
+    <img src="{{ url_for('static', filename='Man2.png') }}" alt="uomo" class="img-right img">
+</div>
+<div class="distancer" id="3"></div>
+<div id="obiettivo" class="section">
+    <img src="{{ url_for('static', filename='Design.jpg') }}" alt="uomo" class="img-left img">
+    <div class="testo">
+        <h1 id="titolo">Obiettivo</h1>
+        <p id="par">A V Design, crediamo che ogni cliente meriti un sito web che non solo abbia un aspetto straordinario, ma che funzioni perfettamente per le loro esigenze specifiche. La nostra missione è aiutare le aziende a crescere online attraverso:</p>
+            <ul id="lista">
+                <li><strong>Creatività</strong>: Sviluppiamo design unici e innovativi.</li>
+                <li><strong>Personalizzazione</strong>: Offriamo soluzioni su misura che riflettono l'identità e i valori del cliente.</li>
+                <li><strong>Eccellenza</strong>: Puntiamo alla perfezione in ogni progetto che intraprendiamo.</li>
+            </ul>
+    </div>
+</div>
+<div class="distancer" id="4"></div>
+<div id="pacchetti">
+    <div class="card starter" onclick="redirectToURL('{{ url_for('pacchetti', card='starter')}}')">
+        <h2>Starter</h2>
+        <p>Include la creazione di un sito web di base con 2 pagine e il servizio di Hosting. Perfetto per chi desidera un sito semplice ma efficace.</p>
+        <h3>Scopri di più</h3>
+        <div class="hover"><a class="no-style" href="{{ url_for('pacchetti', card='starter') }}">Scopri di più</a></div>
+    </div>
+    <div class="card pro" onclick="redirectToURL('{{ url_for('pacchetti', card='pro')}}')"">
+        <h2>Pro</h2>
+        <p>Offre un sito web con 4 pagine, servizio di Hosting e manutenzione. Ideale per aziende che necessitano di una presenza online più importante</p>
+        <h3>Scopri di più</h3>
+        <div class="hover"><a class="no-style" href="{{ url_for('pacchetti', card='pro') }}">Scopri di più</a></div>
+    </div>
+    <div class="card elite" onclick="redirectToURL('{{ url_for('pacchetti', card='elite')}}')">
+        <h2>Elite</h2>
+        <p>Include tutto ciò che offre il pacchetto Pro, oltre alla creazione di un logo personalizzato per rafforzare l'identità del proprio brand.</p>
+        <h3>Scopri di più</h3>
+        <div class="hover"><a class="no-style" href="{{ url_for('pacchetti', card='elite')}}">Scopri di più</a></div>
+    </div>
+</div>
+
+<div id="pacchetti">
+    <div class="card grafico" onclick="redirectToURL('{{ url_for('pacchetti', card='grafico') | e }}')">
+        <h2>Grafico</h2>
+        <p>Offre la creazione di tre tipi di logo, insieme a una selezione di immagini stock per arricchire i propri contenuti visivi.</p>
+        <h3>Scopri di più</h3>
+        <div class="hover"><a class="no-style" href="{{ url_for('pacchetti', card='grafico') }}">Scopri di più</a></div>
+    </div>
+    <div class="card lingue" onclick="redirectToURL('{{ url_for('pacchetti', card='lingue') | e }}')">
+        <h2>Lingue</h2>
+        <p>Permette di tradurre il tuo sito web in tre lingue diverse, ampliando così il tuo pubblico e migliorando la comunicazione con i clienti stranieri.</p>
+        <h3>Scopri di più</h3>
+        <div class="hover"><a class="no-style" href="{{ url_for('pacchetti', card='lingue') }}">Scopri di più</a></div>
+    </div>
+</div>
+{%endblock%}
+
+{%block script%}
+<script>
+    function redirectToURL(url) {
+        window.location.href = url;
+    }
+
+    function scrollToTarget(target) {
+            document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+    document.getElementById('trigger-popup').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'flex';
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === document.getElementById('popup')) {
+            document.getElementById('popup').style.display = 'none';
+        }
+    });
+
+</script>
+{%endblock%}

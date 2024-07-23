@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Badge.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas Neue">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    {%block link%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {%endblock%}
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="{{ url_for('static', filename='Logo.png') }}" id="logo" alt="logo">
+            <nav>
+                <ul class="nav-links">
+                    {% block nav %}{% endblock %}
+                </ul>
+            </nav>
+            <a class="no-style cta" id="trigger-popup" href="#">Contatta</a>
+        </div>
+    </header>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Contatta</h2>
+            <p class="normal">+39 353 429 7168</p>
+            <p class="normal">tomatis.pol@gmail.com</p>
+        </div>
+    </div>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        {%block footer%}{%endblock%}
+    </footer>
+    {%block script%}
+    <script>
+        function redirectToURL(url) {
+            window.location.href = url;
+        }
+
+        document.getElementById('trigger-popup').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        document.getElementById('trigger-popup2').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('popup')) {
+                document.getElementById('popup').style.display = 'none';
+            }
+        });
+
+    </script>
+    {%endblock%}

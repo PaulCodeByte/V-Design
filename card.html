@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block title%}
+V Design || {{pack}}
+{%endblock%}
+
+{%block link%}
+<link rel="stylesheet" href="{{ url_for('static', filename='cardStyle.css') }}">
+{%endblock%}
+
+{%block nav%}
+<li><a class="no-style link" href="{{ url_for('home') }}">Home</a></li>
+{%endblock%}
+
+{%block main%}
+    <main>
+        <div id="starter" class="section">
+            <div class="testo">
+                <h1 id="titolo">{{ pack }}</h1>
+                <p id="par">{{ desc }}</p>
+                <ul id="lista">
+                    {% for elemento in elementi %}
+                        <li>•       {{ elemento }}</li>
+                    {% endfor %}
+                </ul>
+                <a class="no-style cta" id="trigger-popup2" href="#">Contatta</a>
+            </div>
+            <img src="{{ url_for('static', filename=img) }}" alt="codice" class="img-right img">
+        </div>
+        <div class="distancer"></div>
+    </main>
+{%endblock%}
